@@ -42,6 +42,7 @@ const VideoPlayer = ({ url, caption, localUrls, setLocalUrls}) => {
   // Fetch VTT content and create Blob URLs
   const createBlobUrl = async (subtitles) => {
     const urls = {};
+    setSubtitlesWithTimestamps(() => [])
     for (let i = 0; i < subtitles.length; i++) {
       const sub = subtitles[i];
       const vttContent = await fetchVTTContent(`http://localhost:8000${sub.subtitle_path}`);
